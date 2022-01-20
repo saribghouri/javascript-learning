@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="in">
+            <div><input id="inpt" type="text"></div>
+            <div><button onclick="abc()" id="ad"> Add </button></div>
+        </div>
+        <div>
+            <div>
+                <select name="dropdown" id="dropdown1" onchange="ab()"></select>
+
+                </select>
+            </div>
+            <div id="delete">
+                <!-- <input id="text" type="text-area"> <button id="dlt">delete</button> -->
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        let userlist = [];
+        function abc() {
+            let user = document.getElementById("inpt").value
+            let parent = document.getElementById("dropdown1")
+            userlist.push(user)
+
+            let option = document.createElement("option")
+            option.text = user
+            option.value = user
+            option.setAttribute('id', (userlist.length + 1))
+            parent.appendChild(option)
+
+            console.log(userlist)
+        }
+
+        // let arry = []
+
+        function ab() {
+
+
+
+            let arry = document.getElementById('dropdown1')
+            let body = document.getElementById('delete')
+            let input = document.createElement('h4')
+            input.setAttribute('id', (userlist.length + 1))
+            input.innerHTML = arry.value
+            arry.remove(arry.selectedIndex);
+            let button = document.createElement('button')
+            button.addEventListener("click",dlte);
+            button.innerHTML = 'delete'
+            body.appendChild(input)
+            body.appendChild(button)
+            
+        }
+        function dlte(){
+            // console.log("Tabish")
+            // document.body.removeChild("h4")
+        // userlist.splice(-1)
+            document.getElementsByName('body').removeChild('h4')
+
+        }
+        
+    </script>
+
+
+</body>
+
+</html>
